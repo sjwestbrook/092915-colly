@@ -3,16 +3,18 @@
 /* VARIABLES */
 
 @font: "Times New Roman", Times, Cambria, serif;
+@font-resources:  'PT Sans Narrow', sans-serif;
 @fontsize: 13px;
 @color: #333;
+@grey:  rgb(153, 153, 153);
 @lineheight: 22px;
 @dkred: #ba1820;  // dark red
-
 @border-left: 1px solid  rgb(221, 221, 221);
 @border-right: 1px solid  rgb(221, 221, 221);
 @border-top: 1px solid  rgb(221, 221, 221);
 @border-bottom: 1px solid  rgb(221, 221, 221);
 @radius: 5px;
+@cardshadow: rgba(153, 153, 153, 0.2) 1px 1px 7px 0px;
 
 
 /* GLOBAL STYLES */
@@ -25,13 +27,11 @@ body {
   font-family: @font;
   font-size: @fontsize;
   line-height: @lineheight;
-  // width: 100%;
 }
 
 #page {
   padding: 30px 17px 10px 17px;
   margin: 20px auto;
-  // width: 100%;
   width: 1000px;
 }
 
@@ -50,7 +50,6 @@ body {
 }
 
 #branding a {
-  color: rgb(190, 178, 178);
   height: 86px;
   margin: -22px 243px 0 243px;
   height: 86px;
@@ -69,7 +68,7 @@ ul {
 }
 
 ul li a span.label {
-  color: rgb(0, 0, 0);
+  color:@color;
   display: block;
   font-size: 12px;
   font-style: normal;
@@ -79,7 +78,6 @@ ul li a span.label {
   text-align: center;
   text-transform: uppercase;
 }
-
 
 
 /* FIRST 4 CARDS STYLES */
@@ -93,7 +91,7 @@ ul#navigation_pri {
 }
 
 ul li#biography, ul li#journal, ul li#archive, ul li#contact {
-  box-shadow: rgba(153, 153, 153, 0.2) 1px 1p 7px 0px;
+  box-shadow: @cardshadow;
   border-top: @border-top;
   border-right: @border-right;
   border-bottom: @border-bottom;
@@ -110,11 +108,14 @@ ul li#biography, ul li#journal, ul li#archive, ul li#contact {
   margin-right: 10px;
 }
 
+.arch:hover {
+  color: @grey;
+}
 
 /* EXTERNAL RESOURCES STYLES */
 
 ul li {
-  box-shadow: rgba(153, 153, 153, 0.2) 1px 1p 7px 0px;
+  box-shadow: @cardshadow;
   border-top: @border-top;
   border-right: @border-right;
   border-bottom: @border-bottom;
@@ -136,7 +137,7 @@ ul li {
 /* OTHER LIST ITEM & RELATED STYLES */
 
 li a {
-  color: rgb(153, 153, 153);
+  color: @grey;
   cursor: auto;
   font-family: @font;
   font-size: @fontsize;
@@ -151,7 +152,7 @@ li a {
 }
 
 .strap {
-  color: rgb(153, 153, 153);
+  color: @grey;
   display: block;
   font-family: @font;
   font-size: 12px;
@@ -198,15 +199,25 @@ span {
 }
 
 
-/* MISC STYLES */
+/* MISC LINK STYLES */
 
 a:link, a:visited {
   color: @dkred;
 }
 
+a {
+    cursor: pointer;
+}
+
+// doesn't work
 // ul li a:hover {
 //   color: @dkred;
 // }
+
+a.dest:hover {
+  color: @grey;
+}
+
 
 
 /* H2 STYLES */
@@ -214,7 +225,7 @@ a:link, a:visited {
 h2 {
   clear: both;
   display: block;
-  font-family: 'PT Sans Narrow', sans-serif;
+  font-family: @font-resources;
   font-size: 19.5px;
   font-weight: bold;
   line-height: @lineheight;
@@ -226,16 +237,19 @@ span.black {
   color: black;
   font-size: 19.5px;
   font-weight: bold;
-  font-family: 'PT Sans Narrow', sans-serif;
 }
 
 span.small {
   font-size: @fontsize;
-  font-family: 'PT Sans Narrow', sans-serif;
+  font-family: @font-resources;
 }
 
 h2 a {
   text-decoration: none;
+}
+
+h2 a:hover {
+  text-decoration: underline;
 }
 
 
@@ -243,14 +257,14 @@ h2 a {
 
 #siteinfo {
   clear: both;
-  color: rgb(153, 153, 153);
+  color: @grey;
   line-height: 22px;
   text-align: center;
 }
 
 #siteinfo a {
-  color: rgb(153, 153, 153);
-  cursor: pointer;
+  color: @grey;
+
   font-family: @font;
   font-size: @fontsize;
 }
@@ -311,5 +325,4 @@ h2 a {
     margin-top: 125px;
     margin-bottom: 15px;
   }
-
 }
