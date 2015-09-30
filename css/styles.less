@@ -9,12 +9,39 @@
 @grey:  rgb(153, 153, 153);
 @lineheight: 22px;
 @dkred: #ba1820;  // dark red
-@border-left: 1px solid  rgb(221, 221, 221);
-@border-right: 1px solid  rgb(221, 221, 221);
-@border-top: 1px solid  rgb(221, 221, 221);
-@border-bottom: 1px solid  rgb(221, 221, 221);
-@radius: 5px;
-@cardshadow: rgba(153, 153, 153, 0.2) 1px 1px 7px 0px;
+// @border-left: 1px solid  rgb(221, 221, 221);
+// @border-right: 1px solid  rgb(221, 221, 221);
+// @border-top: 1px solid  rgb(221, 221, 221);
+// @border-bottom: 1px solid  rgb(221, 221, 221);
+// @radius: 5px;
+// @cardshadow: rgba(153, 153, 153, 0.2) 1px 1px 7px 0px;
+
+
+/* MIXINS */
+
+.card-styles {
+  border-left: 1px solid  rgb(221, 221, 221);
+  border-right: 1px solid  rgb(221, 221, 221);
+  border-top: 1px solid  rgb(221, 221, 221);
+  border-bottom: 1px solid  rgb(221, 221, 221);
+  radius: 5px;
+  box-shadow: rgba(153, 153, 153, 0.2) 1px 1px 7px 0px;
+}
+
+.listyles {
+  .card-styles;
+  background-image: url(images/card.png);
+  background-color: rgba(0, 0, 0, 0);
+  line-height: 18px;
+  list-style-type: none;
+  display: inline;
+  float: left;
+  width: 207px;
+  padding: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
 
 
 /* GLOBAL STYLES */
@@ -91,47 +118,15 @@ ul#navigation_pri {
 }
 
 ul li#biography, ul li#journal, ul li#archive, ul li#contact {
-  box-shadow: @cardshadow;
-  border-top: @border-top;
-  border-right: @border-right;
-  border-bottom: @border-bottom;
-  border-left: @border-left;
-  border-radius: @radius;
-  background-image: url(images/card.png);
-  background-color: rgba(0, 0, 0, 0);
-  line-height: 18px;
-  list-style-type: none;
-  float: left;
-  width: 207px;
+  .listyles;
   height: 279px;
-  padding: 10px;
-  margin-right: 10px;
 }
 
 .arch:hover {
   color: @grey;
 }
 
-/* EXTERNAL RESOURCES STYLES */
 
-ul li {
-  box-shadow: @cardshadow;
-  border-top: @border-top;
-  border-right: @border-right;
-  border-bottom: @border-bottom;
-  border-left: @border-left;
-  border-radius: @radius;
-  background-image: url(images/card.png);
-  background-color: rgba(0, 0, 0, 0);
-  line-height: 18px;
-  list-style-type: none;
-  display: inline;
-  float: left;
-  width: 207px;
-  padding: 10px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-}
 
 
 /* OTHER LIST ITEM & RELATED STYLES */
@@ -209,15 +204,10 @@ a {
     cursor: pointer;
 }
 
-// doesn't work
-// ul li a:hover {
-//   color: @dkred;
-// }
 
 a.dest:hover {
   color: @grey;
 }
-
 
 
 /* H2 STYLES */
